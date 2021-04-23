@@ -1,30 +1,24 @@
 #include<iostream>
 #include<vector>
-#include<algorithm>
 
-using namespace std;
+using namespace  std;
 
 int main(){
-    int n, q;
+    int n, q, i, x;
     cin>>n>>q;
-    vector<int> a(n);
-    //vector<int> t;
-    for(int i = 0; i < n; i++){
-        int j;
-        cin>>a[i];
-        //a.push_back(make_pair(j, i));
+    vector<int> color(51, 0);
+    for(i = 1; i <= n; i++){
+        cin>>x;
+        if(!color[x]) color[x] = i;
     }
-    vector<int> b(q);
+    for(i = 1; i <= q; i++){
+        cin>>x;
+        cout<<color[x]<<" ";
 
-    for(int i = 0; i < q; i++){
-        int flag = 0;
-        cin>>flag;
-        auto it = find(a.begin(), a.end(), flag);
-        int temp = a[it - a.begin()];
-        int s = it - a.begin();
-        a.erase(a.begin() + s);
-        a.insert(a.begin(), temp);
-        cout<<s+1<<" ";
+        for(int j = 1; j < 51; j++){
+            if(color[j] != 0 && color[j] < color[x]) color[j]++;
+        }
+        color[x] = 1;
     }
     cout<<endl;
     return 0;
