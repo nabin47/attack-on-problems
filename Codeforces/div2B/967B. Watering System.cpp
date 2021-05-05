@@ -1,5 +1,4 @@
 #include<iostream>
-#include<math.h>
 #include<vector>
 #include<algorithm>
  
@@ -13,14 +12,16 @@ int main() {
 
     for(i = 0; i < n; i++) {
         cin>>x[i];
-        
         sum += x[i];
     }
+    
     int div = x[0] * a, pre = x[0];
     sort(x.begin(), x.end());
+
     if((div / sum) >= b) {
         cout<<0<<endl;
     }
+    
     else{
         for(i = n - 1; i >= 0; i--) {
             if(x[i] == pre and signal == 0) {
