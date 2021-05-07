@@ -1,12 +1,12 @@
 #include<iostream>
-#define B 10e9
+#include<math.h>
 
 using namespace std;
 
 int main() {
     int n, q, i;
     long long x, a, sum = 0;
-    long long big = B + 7;
+    long long big = (10e9) + 7;
     cin>>n;
     for(int i = 0; i < n; i++){
         cin>>a;
@@ -15,7 +15,7 @@ int main() {
     cin>>q;
     for(int i = 0; i < q; i++) {
         cin>>x;
-        sum = (sum + sum) % big;
+        sum = fmod((sum + sum), big);
         cout<<sum<<endl;
     }
     return 0;
